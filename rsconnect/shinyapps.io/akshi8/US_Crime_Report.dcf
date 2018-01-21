@@ -1,0 +1,12 @@
+name: US_Crime_Report
+title: US_Crime_Report
+username:
+account: akshi8
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 259006
+bundleId: 1185862
+url: https://akshi8.shinyapps.io/US_Crime_Report/
+when: 1516564083.85661
+asMultiple: FALSE
+asStatic: FALSE
