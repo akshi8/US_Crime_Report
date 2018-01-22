@@ -3,7 +3,7 @@
 
 Shiny App for violent crime analysis in US
 
-|               |
+
 | ------------------------------- |
 | [Deployed Shiny App](https://akshi8.shinyapps.io/US_Crime_Report/)         |
 | [Rendered Milestone Writeup](https://github.com/akshi8/US_Crime_Report/blob/master/milestone2.md) |
