@@ -1,0 +1,69 @@
+"","department_name","code","real_name","state","search_name","lat","long"
+"1","Albuquerque, N.M.","NM00101","Albuquerque","NM","AlbuquerqueNM",35.0844909,-106.6511367
+"2","Arlington, Texas","TX22001","Arlington","TX","ArlingtonTX",32.735687,-97.1080656
+"3","Atlanta","GAAPD00","Atlanta","GA","AtlantaGA",33.7489954,-84.3879824
+"4","Aurora, Colo.","CO00101","Aurora","CO","AuroraCO",39.7294319,-104.8319195
+"5","Austin, Texas","TX22701","Austin","TX","AustinTX",30.267153,-97.7430608
+"6","Baltimore","MDBPD00","Baltimore","MD","BaltimoreMD",39.2903848,-76.6121893
+"7","Baltimore County, Md.","MD00301","Baltimore","MD","BaltimoreMD",39.2903848,-76.6121893
+"8","Boston","MA01301","Boston","MA","BostonMA",42.3584308,-71.0597732
+"9","Buffalo, N.Y.","NY01401","Buffalo","NY","BuffaloNY",42.8864468,-78.8783689
+"10","Charlotte-Mecklenburg, N.C.","NC06001","Charlotte","NC","CharlotteNC",35.2270869,-80.8431268
+"11","Chicago","ILCPD00","Chicago","IL","ChicagoIL",41.850033,-87.6500523
+"12","Cincinnati","OHCIP00","Cincinnati","OH","CincinnatiOH",39.1146631,-84.52968641
+"13","Cleveland","OHCLP00","Cleveland","OH","ClevelandOH",41.4994954,-81.6954088
+"14","Columbus, Ohio","OHCOP00","Columbus","OH","ColumbusOH",39.9611755,-82.9987942
+"15","Dallas","TXDPD00","Dallas","TX","DallasTX",32.7830556,-96.8066667
+"16","Denver","CODPD00","Denver","CO","DenverCO",39.7391536,-104.9847034
+"17","Detroit","MI82349","Detroit","MI","DetroitMI",42.331427,-83.0457538
+"18","El Paso, Texas","TX07102","El Paso","TX","El PasoTX",31.7587198,-106.4869314
+"19","Fairfax County, Va.","VA02901","Fairfax County","VA","FairfaxVA",38.8462236,-77.3063733
+"20","Fort Worth, Texas","TX22012","Fort Worth","TX","Fort WorthTX",32.725409,-97.3208496
+"21","Fresno, Calif.","CA01005","Fresno","CA","FresnoCA",36.7477272,-119.7723661
+"22","Honolulu","HI00200","Honolulu","HI","HonoluluHI",21.3069444,-157.8583333
+"23","Houston","TXHPD00","Houston","TX","HoustonTX",29.7632836,-95.3632715
+"24","Indianapolis","INIPD00","Indianapolis","IN","IndianapolisIN",39.7683765,-86.1580423
+"25","Jacksonville, Fla.","FL01602","Jacksonville","FL","JacksonvilleFL",30.3321838,-81.655651
+"26","Kansas City, Mo.","MOKPD00","Kansas City","MO","Kansas CityMO",39.0997266,-94.5785667
+"27","Las Vegas","NV00201","Las Vegas","NV","Las VegasNV",36.1749705,-115.137223
+"28","Long Beach, Calif.","CA01941","Long Beach","CA","Long BeachCA",33.7669623,-118.1892348
+"29","Los Angeles","CA01942","Los Angeles","CA","Los AngelesCA",34.0522342,-118.2436849
+"30","Los Angeles County, Calif.","CA01900","Los Angeles","CA","Los AngelesCA",34.0522342,-118.2436849
+"31","Louisville, Ky.","KY05680","Louisville","KY","LouisvilleKY",38.2542376,-85.759407
+"32","Memphis, Tenn.","TNMPD00","Memphis","TN","MemphisTN",35.1495343,-90.0489801
+"33","Mesa, Ariz.","AZ00717","Mesa","AZ","MesaAZ",33.4222685,-111.8226402
+"34","Miami","FL01306","Miami","FL","MiamiFL",25.7742658,-80.1936589
+"35","Miami-Dade County, Fla.","FL01300","Miami","FL","MiamiFL",25.7742658,-80.1936589
+"36","Milwaukee","WIMPD00","Milwaukee","WI","MilwaukeeWI",43.0389025,-87.9064736
+"37","Minneapolis","MN02711","Minneapolis","MN","MinneapolisMN",44.9799654,-93.2638361
+"38","Montgomery County, Md.","MD01604","Montgomery County","MD","RockvilleMD",39.0839973,-77.1527578
+"39","Nashville, Tenn.","TN01901","Nashville","TN","NashvilleTN",36.1658899,-86.7844432
+"40","Nassau County, N.Y.","NY02900","Nassau County","NY","HempsteadNY",40.7062128,-73.6187397
+"41","New Orleans","LANPD00","New Orleans","LA","New OrleansLA",29.9546482,-90.075072
+"42","New York City","NY03030","New York","NY","New YorkNY",40.76149276,-73.98143112
+"43","Newark, N.J.","NJNPD00","Newark","NJ","NewarkNJ",40.735657,-74.1723667
+"44","Oakland, Calif.","CA00109","Oakland","CA","OaklandCA",37.8043722,-122.2708026
+"45","Oklahoma City","OK05506","Oklahoma City","OK","Oklahoma CityOK",35.4715076,-97.54021069
+"46","Omaha, Neb.","NB02802","Omaha","NE","OmahaNE",41.2586096,-95.937792
+"47","Orlando, Fla.","FL04804","Orlando","FL","OrlandoFL",28.5383355,-81.3792365
+"48","Philadelphia","PAPEP00","Philadelphia","PA","PhiladelphiaPA",39.952335,-75.163789
+"49","Phoenix","AZ00723","Phoenix","AZ","PhoenixAZ",33.4483771,-112.0740373
+"50","Pittsburgh","PAPPD00","Pittsburgh","PA","PittsburghPA",40.4406248,-79.9958864
+"51","Portland, Ore.","OR02602","Portland","OR","PortlandOR",45.5234515,-122.6762071
+"52","Prince George's County, Md.","MD01721","Prince George's County","MD","BowieMD",38.97171205,-76.74855206
+"53","Raleigh, N.C.","NC09201","Raleigh","NC","RaleighNC",35.772096,-78.6386145
+"54","Sacramento, Calif.","CA03404","Sacramento","CA","SacramentoCA",38.5815719,-121.4943996
+"55","Salt Lake City","UT01803","Salt Lake City","UT","Salt Lake CityUT",40.7607794,-111.8910474
+"56","San Antonio","TXSPD00","San Antonio","TX","San AntonioTX",29.4241219,-98.4936282
+"57","San Diego","CA03711","San Diego","CA","San DiegoCA",32.7153292,-117.1572551
+"58","San Francisco","CA03801","San Francisco","CA","San FranciscoCA",37.7749295,-122.4194155
+"59","San Jose","CA04313","San Jose","CA","San JoseCA",37.3393857,-121.8949555
+"60","Seattle","WASPD00","Seattle","WA","SeattleWA",47.6062095,-122.3320708
+"61","St. Louis, Mo.","MOSPD00","Saint Louis","MO","Saint LouisMO",38.6272733,-90.1978889
+"62","Suffolk County, N.Y.","NY05101","Suffolk County","NY","BrookhavenNY",40.7792653,-72.9153827
+"63","Tampa, Fla.","FL02902","Tampa","FL","TampaFL",27.9475216,-82.4584279
+"64","Tucson, Ariz.","AZ01003","Tucson","AZ","TucsonAZ",32.2217429,-110.926479
+"65","Tulsa, Okla.","OK07205","Tulsa","OK","TulsaOK",36.157929,-96.01655809
+"66","Virginia Beach, Va.","VA12800","Virginia Beach","VA","Virginia BeachVA",36.8529263,-75.977985
+"67","Washington, D.C.","DCMPD00","Washington","DC","WashingtonDC",38.8951118,-77.0363658
+"68","Wichita, Kan.","KS08703","Wichita","KS","WichitaKS",37.6922361,-97.3375448
