@@ -31,17 +31,17 @@
 
   - So before making any assumptions, the user can understand the layout and what information is being conveyed
 
-![Tab1-Intro](tab1_Intro.png)
+![Tab1-Intro](tab1_Intro.PNG)
 
 - A high level overview of what each `tab` represent
 
   * `Map`: Visualises the number of crimes between 1995-2015 by selecting the crime type based on geographic concentration of crimes. The added feature of `Show crime relative to Population` normalizes the crime numbers by the population of the city
 
-![Tab2-Map](tab2_Map.png)
+![Tab2-Map](tab2_Map.PNG)
 
   * `Trends`: Shows the trend of all crimes between two cities based on the user selection of time period and cities
 
-![Tab3-Trends](tab3_Trends.png)
+![Tab3-Trends](tab3_Trends.PNG)
   * `Data`: Compares the crime rates between two cities through raw statistics and user selections
 
-![Tab4-Data](tab4_Data.png)
+![Tab4-Data](tab4_Data.PNG)
