@@ -35,7 +35,7 @@
 
   - Additionally carries app developer's info and contact if a user you like to interact or suggest improvements
 
-![Tab1-Intro](tab1_Intro.png)
+![Tab1-Intro](docs/tab1_Intro.png)
 
 - A high-level overview of what each `tab` represent
 
