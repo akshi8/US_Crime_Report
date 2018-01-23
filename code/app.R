@@ -199,8 +199,7 @@ shinyUI <- (
                           
                           
                           fluidRow(
-                            tableOutput("table1"),
-                            tableOutput("table2")
+                            tableOutput("table1")
                           )
                           
                         )
@@ -219,13 +218,23 @@ shinyServer <- (function(input, output) {
   # Map using leaflet
   
   output$map1 <- renderLeaflet({
+
+    # Create data frame for previous year difference
+    
     df <- crime_data %>% 
-      filter(year == input$yearInput,type == input$crimeInput)
-
-      df <- df %>% mutate(sums = sums_rel)
-      
-
-    radius <- 25/max(df$sums,na.rm=TRUE)
+       arrange(year) %>% group_by(city,type) %>% 
+      mutate(old_sum = lag(sums_rel), diff_rel = ((sums_rel - old_sum) /sums_rel)*100 , diff_rel = ifelse(is.na(diff_rel),0,diff_rel)) %>%  
+      mutate(old = lag(sums), diff = ((sums - old_sum) /sums)*100, diff = ifelse(is.na(diff),0,diff)) %>%
+      filter(year == input$yearInput,type == input$crimeInput) %>% mutate(sums = sums_rel)
+    
+   # df <- df %>% mutate(sums = sums_rel)
+    
+    
+    radius <- 30/max(df$sums,na.rm=TRUE)
+# https://rstudio.github.io/leaflet/colors.html    
+    pal <- colorNumeric(
+      palette = "Spectral",
+      domain = df$diff)
     
     ## leaflet options, radius and zoom
     leaflet(data=df) %>%
@@ -237,7 +246,8 @@ shinyServer <- (function(input, output) {
       
       ### Circle bubble setting
       
-      
+      # Create a continuous palette function
+
       # https://rstudio.github.io/leaflet/markers.html
       addCircleMarkers(~long, 
                        ~lat,
@@ -248,7 +258,7 @@ shinyServer <- (function(input, output) {
                        label = ~as.character(city),
                        radius = ~(sums * radius),
                        stroke = FALSE, 
-                       color = 'green',
+                       color = ~pal(diff),
                        fillOpacity = 0.5) 
   })
   
