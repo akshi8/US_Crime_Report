@@ -1,11 +1,11 @@
 # Week 3 - Project Milestone 2: First submission
 
-#### Change goals
+#### Changed goals
 * How have your visualization goals changed?
 
-- After some valuable feedback and insights from @Tamara_Munzner and Samuel Hinshaw (@hinshaws) on my initial milestone goals, I decided to re-design my app and changed it's end-user.
+  - After some valuable feedback and insights from @Tamara_Munzner and Samuel Hinshaw (@hinshaws) on my initial milestone goals, I decided to re-design my app and changed it's end-user.
 
-- Previously the `US Crime Data App` was meant for a police commissioner of a particular city and visualization had less context and usability, I have tried to simply for this milestone to get the app up and running first.
+  - Previously the `US Crime Data App` was meant for a police commissioner of a particular city and visualization had less context and usability, I have tried to simply for this milestone to get the app up and running first.
 
 #### Refined App goals
 
@@ -35,7 +35,7 @@
 
   - Additionally carries app developer's info and contact if a user you like to interact or suggest improvements
 
-![Tab1-Intro](docs/tab1_Intro.png)
+![Tab1-Intro](tab1_Intro.png)
 
 - A high-level overview of what each `tab` represent
 
@@ -48,7 +48,7 @@
 
    - WIP features: Instead of showing raw crime numbers for a city and all in `green` I will be implementing a `colour scale` of increase or decrease in crime since past 5 years, the colour scale will be red, yellow, green on a gradient scale based on increase in decrease in crimes
 
-![Tab2-Map](docs/tab2_Map.png)
+![Tab2-Map](tab2_Map.png)
 
   * `Trends`: Shows the trend of all crimes between two cities based on the user selection of time period and cities
 
@@ -56,9 +56,9 @@
     - WIP feature: I will try to include a `prediction` or `forecast` for years after 2015, that is 2016-2018
     - Also, the aspect ratio of charts are not really good and there is no tool-tip, which I will add in next milestone
 
-![Tab3-Trends](docs/tab3_Trends.png)
+![Tab3-Trends](tab3_Trends.png)
   * `Data`: Based on year and city selection user can download data as a csv
 
     - Addition: I will give the user to select all or multiple cities to download data
 
-![Tab4-Data](docs/tab4_Data.png)
+![Tab4-Data](tab4_Data.png)
