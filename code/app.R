@@ -69,8 +69,8 @@ scale_colour_Publication <- function(...){
 
 ## Data Import and processing
 
-crime_dataset <- read_csv('../data/crime_dataset.csv')
-locations <- read_csv('../data/locations.csv')
+crime_dataset <- read_csv('crime_dataset.csv')
+locations <- read_csv('locations.csv')
 
 locations$lat <- as.numeric(locations$lat)
 locations$long <- as.numeric(locations$long)
@@ -107,7 +107,7 @@ shinyUI <- (
               
               
               tabPanel("Intro",
-                       includeMarkdown("../docs/tutorial.md"),
+                       includeMarkdown("tutorial.md"),
                        # imageOutput("crime.png")
                        hr()
               ),
@@ -135,9 +135,8 @@ shinyUI <- (
                                                            min = 1995, max = 2015, value = 2007,step=1,animate=FALSE),
                                                uiOutput("stateControls"),
                                                helpText("Checkbox to see crime rates normalised by \n population"),
-                                               checkboxInput("relCheckbox", "Show crime relative to Population", value = FALSE),
-                                               selectInput("stateInput", "Show by State",
-                                                           choices = States)
+                                               checkboxInput("relCheckbox", "Show crime relative to Population", value = FALSE)
+
                        ),
                        mainPanel(leafletOutput("map1",  height = 600, width= 800))
                        )
@@ -222,12 +221,10 @@ shinyServer <- (function(input, output) {
   output$map1 <- renderLeaflet({
     df <- crime_data %>% 
       filter(year == input$yearInput,type == input$crimeInput)
-    if(input$stateInput != "ALL"){
-      df <- df %>% filter(state==input$stateInput)
-    }
-    if(input$relCheckbox == TRUE){
+
       df <- df %>% mutate(sums = sums_rel)
-    }
+      
+
     radius <- 25/max(df$sums,na.rm=TRUE)
     
     ## leaflet options, radius and zoom
