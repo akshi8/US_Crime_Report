@@ -21,13 +21,6 @@ library(stringr)
 library(tidyr)
 
 
-## import data
-
-## Define server details
-
-##Data wrangling
-
-
 # Setting up ggthemes
 
 ## https://rpubs.com/Koundy/71792
@@ -53,7 +46,6 @@ theme_Publication <- function(base_size=14) {
             legend.position = "bottom",
             legend.direction = "horizontal",
             legend.key.size= unit(0.8, "cm"),
-            legend.margin = unit(0, "cm"),
             legend.title = element_text(face="italic"),
             plot.margin=unit(c(10,5,5,5),"mm"),
             strip.background=element_rect(colour="#f0f0f0",fill="#f0f0f0"),
@@ -74,11 +66,17 @@ scale_colour_Publication <- function(...){
   
 }
 
-crime_dataset <- read_csv('./data/crime_dataset.csv')
-locations <- read_csv('./data/locations.csv')
+
+## Data Import and processing
+
+crime_dataset <- read_csv('../data/crime_dataset.csv')
+locations <- read_csv('../data/locations.csv')
 
 locations$lat <- as.numeric(locations$lat)
 locations$long <- as.numeric(locations$long)
+
+## create dataframe to gather crime numbers
+
 crime <- data_frame(crime_type= c("violent_crime","homs_sum","rape_sum","rob_sum","agg_ass_sum"),
                     type = c("All","Homicide","Rape","Robbery","Aggravated Assault"))
 crime_data <- crime_dataset %>% gather(crime_type,sums,5:9) %>% select(ORI,year,total_pop,crime_type,sums) %>% inner_join(crime) %>% select(-crime_type) %>% 
@@ -90,6 +88,7 @@ crime_data <- crime_dataset %>% gather(crime_type,sums,5:9) %>% select(ORI,year,
 
 
 
+## create states, cities lists for user select inputs
 
 States <- sort(append(unique(locations$state),"ALL"))
 Cities <- sort(append(unique(locations$city),"ALL"))
@@ -108,12 +107,14 @@ shinyUI <- (
               
               
               tabPanel("Intro",
-                       includeMarkdown("tutorial.md"),
+                       includeMarkdown("../docs/tutorial.md"),
                        # imageOutput("crime.png")
                        hr()
               ),
               
               # "US Crime Report",
+              
+              ### Code for map leaflet
               tabPanel("Map",
                        
                        fluidRow( sidebarPanel( width = 3,
@@ -144,7 +145,7 @@ shinyUI <- (
                        
               ),
               
-              ## Code for the table tab.
+              ## Code for the Trends tab.
               
               tabPanel( "Trends",
                         fluidRow(sidebarPanel(width = 3,
@@ -169,24 +170,22 @@ shinyUI <- (
                             splitLayout(cellWidths = c("50%"), plotOutput("plot1"),plotOutput("plot2"))
                           )
                           
-                          
                         )
-                        
-                        
-                        )
-                        
-                        
-                        
+                    )
+          
               ),
+              
+              
+              ### code for Data tab
               tabPanel( "Data",
                         fluidRow(sidebarPanel(width = 3,
                                               helpText("Select the City and time period for raw statistics"),
-                                              
+                                              #city
                                               selectInput("cityInput12", "Choose City",
                                                           choices = Compare, selected = "Chicago"),
                                               
                                               
-                                              
+                                              #year
                                               
                                               sliderInput("yearInput22", 
                                                           label = "Year",
@@ -206,20 +205,19 @@ shinyUI <- (
                           )
                           
                         )
-                        
-                        
-                        )
-                        
-                        
-                        
+   
+                      )
+        
               )
   )              
 ) 
 
 
 
+##################### Server Logic starts here ################################
+
 shinyServer <- (function(input, output) {
-  # Define server logic required to make the map.
+  # Map using leaflet
   
   output$map1 <- renderLeaflet({
     df <- crime_data %>% 
@@ -231,12 +229,19 @@ shinyServer <- (function(input, output) {
       df <- df %>% mutate(sums = sums_rel)
     }
     radius <- 25/max(df$sums,na.rm=TRUE)
+    
+    ## leaflet options, radius and zoom
     leaflet(data=df) %>%
       addProviderTiles(providers$Stamen.TonerLite,
                        options = providerTileOptions(noWrap = TRUE)
       ) %>%
       setView(lng = -93.85, lat = 37.45, zoom = 4) %>% 
       addTiles() %>%
+      
+      ### Circle bubble setting
+      
+      
+      # https://rstudio.github.io/leaflet/markers.html
       addCircleMarkers(~long, 
                        ~lat,
                        popup = ~paste("</br><b>Crime:</b>",type,
@@ -251,14 +256,16 @@ shinyServer <- (function(input, output) {
   })
   
   
+  ## Comparison data for trend plots
+  
   comparison <- crime_data %>% group_by(city,year,type) %>% summarize(total=sum(sums_rel)) %>% mutate(Crime = ifelse(type=="Aggravated Assault", "Assualt",type))
   
-  output$plot1 <- renderPlot({
-    comparison <- comparison %>% 
-      filter(year >= input$yearInput2[1],
-             year <= input$yearInput2[2],
-             city == input$cityInput1)
-    
+  output$plot1 <- renderPlot({  
+                comparison <- comparison %>% 
+                  filter(year >= input$yearInput2[1], year <= input$yearInput2[2],city == input$cityInput1)
+  
+                
+                ## PLot1  
     {
       ggplot(comparison %>% filter(city == input$cityInput1))+
         geom_line(aes(x=year,y=total, color = Crime),size=1,alpha=0.7) + geom_point(aes(x=year,y=total)) +
@@ -269,11 +276,10 @@ shinyServer <- (function(input, output) {
       }
   })
   
+  ## plot2
+  
   output$plot2 <- renderPlot({
-    comparison <- comparison %>% 
-      filter(year >= input$yearInput2[1],
-             year <= input$yearInput2[2],
-             city == input$cityInput2)
+    comparison <- comparison %>% filter(year >= input$yearInput2[1],year <= input$yearInput2[2],city == input$cityInput2)
     
     
     {
@@ -288,15 +294,14 @@ shinyServer <- (function(input, output) {
   })
   
   
-  #tables
+  #table
   output$table1 <- renderTable({
     
     table1 <-crime_data %>%
-      filter(city == input$cityInput12,year > input$yearInput22[1] & year < input$yearInput22[2]) %>% mutate(City = city, Crime = ifelse(type=="Aggravated Assault", "Assualt",type)) %>%
-      select(City,year,Crime,sums_rel)  %>% arrange(desc(Crime)) %>%
-      spread(Crime,sums_rel)  
-    
-    
+      filter(city == input$cityInput12,year > input$yearInput22[1] & year < input$yearInput22[2]) %>% mutate(City = city, Crime = ifelse(type=="Aggravated Assault", "Assualt",type)) %>% 
+      mutate(Crime = ifelse(Crime=="All", "All Crimes",Crime), Year = year, total = round(sums_rel)) %>%
+      select(City,Year,Crime,total)  %>% arrange(desc(Crime)) %>%
+      spread(Crime,total)  
     
   })
   
