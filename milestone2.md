@@ -48,7 +48,7 @@
 
    - WIP features: Instead of showing raw crime numbers for a city and all in `green` I will be implementing a `colour scale` of increase or decrease in crime since past 5 years, the colour scale will be red, yellow, green on a gradient scale based on increase in decrease in crimes
 
-![Tab2-Map](tab2_Map.png)
+![Tab2-Map](docs/tab2_Map.PNG)
 
   * `Trends`: Shows the trend of all crimes between two cities based on the user selection of time period and cities
 
@@ -56,9 +56,9 @@
     - WIP feature: I will try to include a `prediction` or `forecast` for years after 2015, that is 2016-2018
     - Also, the aspect ratio of charts are not really good and there is no tool-tip, which I will add in next milestone
 
-![Tab3-Trends](tab3_Trends.png)
+![Tab3-Trends](docs/tab3_Trends.PNG)
   * `Data`: Based on year and city selection user can download data as a csv
 
     - Addition: I will give the user to select all or multiple cities to download data
 
-![Tab4-Data](tab4_Data.png)
+![Tab4-Data](docs/tab4_Data.PNG)
