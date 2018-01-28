@@ -130,12 +130,14 @@ shinyUI <- (
                                                selectInput("crimeInput", "Type of Violent crime",
                                                            choices = c( "All","Homicide", "Rape","Robbery","Aggravated Assault")),
                                                helpText("Crimes since 1995"),
+                                        
                                                sliderInput("yearInput", 
                                                            label = "Year",
-                                                           min = 1995, max = 2015, value = 2007,step=1,animate=FALSE),
+                                                           sep = "",
+                                                           min = 1995, max = 2015, value = 2007,step=1,animate=FALSE,dragRange= FALSE),
                                                uiOutput("stateControls"),
                                                helpText("\n The Crime rates have been normalised by \n population")
-
+                                              # checkboxInput("relCheckbox", "Show crime relative to Population", value = FALSE)
 
                        ),
                        mainPanel(leafletOutput("map1",  height = 600, width= 800))
